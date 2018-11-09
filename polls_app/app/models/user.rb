@@ -1,5 +1,11 @@
 class User < ApplicationRecord
-  has_many :polls,
+  has_many :authored_polls,
     primary_key: :id,
-    class_name: "User"
+    foreign_key: :author_id,
+    class_name: :User
+
+  has_many :responses,
+    primary_key: :id,
+    foreign_key: :answer_id,
+    class_name: :Response
 end
